@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Muon
+Exec=muon
+Icon=io.github.subhra74.Muon.png
+Type=Application
+Categories=Utility;Development;Network
