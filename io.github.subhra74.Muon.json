@@ -7,6 +7,7 @@
 		"org.freedesktop.Sdk.Extension.openjdk"
 	],
 	"command": "muon",
+	"rename-desktop-file": "org.snowflake_ssh.App.desktop",
 	"finish-args": [
 		"--share=ipc",
 		"--socket=x11",
@@ -30,9 +31,10 @@
 			"build-commands": [
 				"install -Dm644 snowflake.jar -t /app/muon",
 				"install -Dm755 muon -t /app/bin",
-				"install -Dm644 io.github.subhra74.Muon.png -t /app/share/icons/hicolor/128x128/apps",
-				"install -Dm644 io.github.subhra74.Muon.desktop -t /app/share/applications",
-				"install -Dm644 io.github.subhra74.Muon.metainfo.xml -t /app/share/metainfo"
+				"install -Dm644 $FLATPAK_ID.png -t /app/share/icons/hicolor/128x128/apps",
+				"install -Dm644 $FLATPAK_ID.metainfo.xml -t /app/share/metainfo",
+				"install -Dm644 org.snowflake_ssh.App.desktop -t /app/share/applications",
+				"desktop-file-edit --set-name=Muon --set-icon=$FLATPAK_ID --set-key=Exec --set-value=muon --add-category=Utility --add-category=Development --add-category=Network /app/share/applications/org.snowflake_ssh.App.desktop"
 			],
 			"sources": [
 				{
@@ -42,11 +44,12 @@
 				},
 				{
 					"type": "file",
-					"path": "io.github.subhra74.Muon.png"
+					"url": "https://raw.githubusercontent.com/subhra74/snowflake/refs/tags/v1.0.4/flatpak/org.snowflake_ssh.App.desktop",
+					"sha256": "d7e1d9b901d4d1588e60c4e61b91dfa6673d502fc26e27a3b6c82a7a24879a02"
 				},
 				{
 					"type": "file",
-					"path": "io.github.subhra74.Muon.desktop"
+					"path": "io.github.subhra74.Muon.png"
 				},
 				{
 					"type": "file",
